@@ -25,4 +25,7 @@ def voltage_get (bb):
             voltage = i[10:15]
             return voltage
 
-print(number_bb_get())
+def bb_to_voltage():
+    for i in number_bb_get():
+        print(i, ' ', voltage_get(i), '\n')
+bb_to_voltage()
