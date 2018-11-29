@@ -14,10 +14,6 @@ def number_bb_get():
             bb_number.append(i[-20:-8])
     return bb_number
 
-
-    #print(bb_list.text)
-    pass
-
 def voltage_get (bb):
     #делаем запрос лога
     agk = requests.get('http://emercit.com/tech3/log.php?bb=' + str(bb))
