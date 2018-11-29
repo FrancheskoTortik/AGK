@@ -24,7 +24,7 @@ def voltage_get (bb):
         if voltage_level_str != []:
             voltage = i[10:15]
             return voltage
-
+#функция пробегает по списку ББ и находит их напряжение
 def bb_to_voltage():
     for i in number_bb_get():
         print(i, ' ', voltage_get(i), '\n')
