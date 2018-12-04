@@ -75,20 +75,22 @@ def info_voltage():
         #data.write(str(y[0]) + ' ' + str(y[1]) + ' ' + str(y[2]) + '\n')
     #data.close()
     return agk_allert #info_agk, no_data_from_agk
-msg = MIMEMultipart()
-addr_from = '8600999@gmail.com'
-addr_to = '4008@emercit.ru'
-password = 'qwerty8600999'
-msg['From'] = addr_from
-msg['To'] = addr_to
-msg['Subject'] = 'Report_voltage'
-body =''' \tДобрый день! Высылаю напряжение АКБ:\n
-''' + info_voltage()
-msg.attach(MIMEText(body,'plain'))
-smpt_obj = smtplib.SMTP('smtp.gmail.com', 587)
-#smpt_obj.set_debuglevel(True)
-smpt_obj.ehlo()
-smpt_obj.starttls()
-smpt_obj.login('8600999@gmail.com', password)
-smpt_obj.send_message(msg)
-smpt_obj.quit()
+email_list = ['4008@emercit.ru', '8600999@gmail.com', 'kh_sergey2006@mail.ru', 'e.9180154357@yandex.ru']
+for x in email_list:
+    msg = MIMEMultipart()
+    addr_from = '8600999@gmail.com'
+    addr_to = x
+    password = 'qwerty8600999'
+    msg['From'] = addr_from
+    msg['To'] = addr_to
+    msg['Subject'] = 'Report_voltage'
+    body =''' \tДобрый день! Высылаю напряжение АКБ:\n
+    ''' + info_voltage()
+    msg.attach(MIMEText(body,'plain'))
+    smpt_obj = smtplib.SMTP('smtp.gmail.com', 587)
+    #smpt_obj.set_debuglevel(True)
+    smpt_obj.ehlo()
+    smpt_obj.starttls()
+    smpt_obj.login('8600999@gmail.com', password)
+    smpt_obj.send_message(msg)
+    smpt_obj.quit()
