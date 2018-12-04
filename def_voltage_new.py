@@ -69,8 +69,13 @@ def info_voltage():
     #data = open('data.txt', 'a', encoding='UTF-8')
 
     for x in no_data_from_agk:
-        agk_allert = agk_allert + '\t' + str(x[0]) +'-------->' + str(x[1]) +'-------->' +  str(x[2]) + '\n'
-        #data.write(str(x[0]) + ' ' + str(x[1])+ ' ' + str(x[2]) + '\n')
+        print(x)
+        try:
+            agk_allert = agk_allert + '\t' + str(region_on_agk(str(x[1][-4:]))) +'-------->' + str(x[1]) +'-------->' +  str(x[2]) + '\n'
+            print(agk_allert)
+            print("Тест")
+        except:
+            print('ОЙ')#data.write(str(x[0]) + ' ' + str(x[1])+ ' ' + str(x[2]) + '\n')
     for y in info_agk:
         agk_allert = agk_allert +'\t' + str(y[0]) +'-------->' + str(y[1]) + '-------->' +str(y[2]) + '\n'
         #data.write(str(y[0]) + ' ' + str(y[1]) + ' ' + str(y[2]) + '\n')
@@ -88,7 +93,7 @@ print(number_agk_get())
 
 hhh = 0
 
-
+print(info_voltage())
 
 if hhh !=0:
     for x in email_list:
